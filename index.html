@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f2f5f9;
+        }
+
+        header {
+            background: #243b64;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 25px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 6px 4px;
+        }
+
+        button {
+            background: #243b64;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #e8edf5;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Student Management Portal</h1>
+    <p>Manage Student Information Easily</p>
+</header>
+
+<main>
+    <section class="card">
+        <h2>Dashboard</h2>
+        <p>Total Students: <strong id="total">0</strong></p>
+    </section>
+
+    <section class="card">
+        <h2>Register Student</h2>
+
+        <form id="studentForm">
+            <input type="text" id="name"
+                   placeholder="Student Name" required>
+
+            <input type="text" id="roll"
+                   placeholder="Roll Number" required>
+
+            <input type="text" id="course"
+                   placeholder="Course" required>
+
+            <button type="submit">Add Student</button>
+        </form>
+    </section>
+
+    <section class="card">
+        <h2>Student Records</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Roll Number</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+            <tbody id="studentList"></tbody>
+        </table>
+    </section>
+</main>
+
+<script>
+    const form = document.getElementById("studentForm");
+    const studentList = document.getElementById("studentList");
+    const total = document.getElementById("total");
+
+    let count = 0;
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const roll = document.getElementById("roll").value.trim();
+        const course = document.getElementById("course").value.trim();
+
+        if (!name || !roll || !course) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        const rows = studentList.querySelectorAll("tr");
+        const duplicate = Array.from(rows).some(row =>
+            row.cells[1].textContent.toLowerCase() === roll.toLowerCase()
+        );
+
+        if (duplicate) {
+            alert("This roll number already exists.");
+            return;
+        }
+
+        const row = studentList.insertRow();
+
+        [name, roll, course].forEach(value => {
+            const cell = row.insertCell();
+            cell.textContent = value;
+        });
+
+        count++;
+        total.textContent = count;
+        form.reset();
+    });
+</script>
+</head>
+<body>
+
+<header>
+    <h1>Student Management Portal</h1>
+    <p>Manage Student Information Easily</p>
+</header>
+
+<main>
+    <section class="card">
+        <h2>Dashboard</h2>
+        <p>Total Students: <strong id="total">0</strong></p>
+    </section>
+
+<section class="card">
+    <h2>Register Student</h2>
+
+    <form id="studentForm">
+        <input type="text" id="name"
+               placeholder="Student Name" required>
+
+        <input type="text" id="roll"
+               placeholder="Roll Number" required>
+
+        <input type="text" id="course"
+               placeholder="Course" required>
+
+        <button type="submit">Add Student</button>
+    </form>
+</section>
+
+<section class="card">
+    <h2>Student Records</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Roll Number</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+        <tbody id="studentList"></tbody>
+    </table>
+</section>
+
+</main>
+
+<script>
+    const form = document.getElementById("studentForm");
+    const studentList = document.getElementById("studentList");
+    const total = document.getElementById("total");
+
+    let count = 0;
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const roll = document.getElementById("roll").value.trim();
+        const course = document.getElementById("course").value.trim();
+
+        if (!name || !roll || !course) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        const rows = studentList.querySelectorAll("tr");
+        const duplicate = Array.from(rows).some(row =>
+            row.cells[1].textContent.toLowerCase() === roll.toLowerCase()
+        );
+
+        if (duplicate) {
+            alert("This roll number already exists.");
+            return;
+        }
+
+        const row = studentList.insertRow();
+
+        [name, roll, course].forEach(value => {
+            const cell = row.insertCell();
+            cell.textContent = value;
+        });
+
+        count++;
+        total.textContent = count;
+        form.reset();
+    });
+</script>
+
+</body>
+</html>
