@@ -1,0 +1,22 @@
+# Student Management Portal - Product Backlog
+
+## Project Description
+The Student Management Portal is a web-based application used to manage student information.
+
+## Product Backlog
+
+| ID | User Story | Priority | Story Points |
+|---|---|---|---|
+| US01 | As an administrator, I want to add student details. | High | 5 |
+| US02 | As an administrator, I want to view student records. | High | 3 |
+| US03 | As an administrator, I want to update student details. | Medium | 3 |
+| US04 | As an administrator, I want to delete student records. | Medium | 3 |
+| US05 | As a student, I want to view my profile. | Medium | 5 |
+| US06 | As an administrator, I want to manage attendance. | Medium | 5 |
+| US07 | As an administrator, I want to generate student reports. | Low | 8 |
+
+## Prioritization
+High-priority features will be implemented first, followed by medium- and low-priority features.
+
+## Conclusion
+The product backlog helps the development team organize, prioritize, and track the features required for the Student Management Portal.
